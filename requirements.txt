@@ -5,3 +5,8 @@ seaborn
 scikit-learn
 torch
 optuna
+ipykernel
+ipywidgets
+imbalanced-learn
+xgboost
+catboost
