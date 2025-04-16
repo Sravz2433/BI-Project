@@ -123,6 +123,7 @@ By automating the classification of MECP2 mutations:
 ---
 
 ## 📁 Repository Structure
+```
 📁 Bioinformatics-MECP2-Classifier/
 │
 ├── 📁 data/
@@ -150,7 +151,7 @@ By automating the classification of MECP2 mutations:
 ├── 📄 README.md
 ├── 📄 LICENSE
 └── 📁 venv/
-
+```
 ---
 
 ## 📜 License
