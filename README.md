@@ -1,4 +1,4 @@
-# 🧬 Machine Learning-Based Classification of MECP2 Mutations
+# 🧬 Rett Syndrome Pathogenicity Classifier
 This repository contains the implementation of a machine learning framework that classifies MECP2 gene mutations as benign or pathogenic. MECP2 mutations are associated with Rett Syndrome and other neurodevelopmental disorders. The proposed pipeline integrates genomic features, statistical analysis, and machine learning, deep learning models to enhance mutation classification accuracy.
 
 ---
@@ -19,13 +19,13 @@ This repository contains the implementation of a machine learning framework that
 ## 🧪 Dataset
 * Source: ClinVar Database
 
-* Total variants: 802
+* Total variants: 1215
 
-   - Pathogenic/Likely Pathogenic: 213
+   - Pathogenic/Likely Pathogenic: 583
 
-   - Benign/Likely Benign: 589
+   - Benign/Likely Benign: 632
 
-* Filter: Single Nucleotide Variants (SNVs) only
+* Filter: Deletion Duplication SNV Insertion
 
 * Format: Tabular, converted to .csv using custom scripts.
 
