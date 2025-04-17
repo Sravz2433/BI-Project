@@ -182,6 +182,6 @@ pip install -r requirements.txt
 ## 📫 Contact
 
 For queries, feel free to reach out at:
-- 📧 your-email@example.com
+- 📧 sravyasri2433@gmail.com
 - 🔗 LinkedIn: [Sravya Sri Mallampalli](https://www.linkedin.com/in/sravya-sri-mallampalli/)
 
