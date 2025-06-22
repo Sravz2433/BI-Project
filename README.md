@@ -1,163 +1,138 @@
 # 🧬 Rett Syndrome Pathogenicity Classifier
-This repository contains the implementation of a machine learning framework that classifies MECP2 gene mutations as benign or pathogenic. MECP2 mutations are associated with Rett Syndrome and other neurodevelopmental disorders. The proposed pipeline integrates genomic features, statistical analysis, and machine learning, deep learning models to enhance mutation classification accuracy.
+
+This repository implements a hierarchical machine and deep learning framework for the classification of **MECP2 gene mutations** as *pathogenic* or *benign*. MECP2 variants are implicated in **Rett Syndrome** and other neurodevelopmental disorders. The proposed workflow integrates domain-informed features, statistical insights, and multiple learning paradigms to improve classification performance.
 
 ---
 
 ## 🧪 Project Overview
 
-- **Objective**: To classify whether a given MECP2 mutation is benign or pathogenic using various ML and DL techniques.
-- **Dataset**: Extracted from publicly available genomic repositories. It includes labeled MECP2 mutation samples with relevant biological features.
-- **Problem Type**: Binary Classification.
-- **Techniques Used**: 
-  - Machine Learning Models (Logistic Regression, KNN, SVM, etc.)
-  - Deep Learning Models (ANN, LSTM, Autoencoder)
-  - Data balancing using Oversampling
-  - Hyperparameter tuning using **Bayesian Optimization with Optuna**
+* **Objective**: To predict the pathogenicity of MECP2 gene variants using a biologically informed feature set and various ML/DL models.
+* **Dataset**: Curated from **ClinVar**, containing annotated MECP2 variants with clinical significance labels.
+* **Problem Type**: Supervised Binary Classification
+* **Techniques Applied**:
+  * Classical Machine Learning Models (Logistic Regression, KNN, SVM, etc.)
+  * Deep Learning Models (ANN, LSTM, Autoencoder)
+  * Data Imbalance Handling using **SMOTE**
+  * Hyperparameter Tuning via **Bayesian Optimization with Optuna**
 
 ---
 
-## 🧪 Dataset
-* Source: ClinVar Database
+## 📂 Dataset Description
 
-* Total variants: 1215
-
-   - Pathogenic/Likely Pathogenic: 583
-
-   - Benign/Likely Benign: 632
-
-* Filter: Deletion Duplication SNV Insertion
-
-* Format: Tabular, converted to .csv using custom scripts.
+* **Source**: [ClinVar Database](https://www.ncbi.nlm.nih.gov/clinvar/)
+* **Total Samples**: 1215
+  * Pathogenic / Likely Pathogenic: 583
+  * Benign / Likely Benign: 632
+* **Included Mutation Types**: Deletion, Duplication, SNV, Insertion
+* **Format**: Cleaned and structured `.csv` after preprocessing and annotation
 
 ---
 
-## 🔧 Methodology
+## 🔄 Methodology
 
-### 📥 Data Collection & Cleaning
-- Filtered **germline SNVs (Single Nucleotide Variants)** relevant to MECP2.
-- Removed **Variants of Uncertain Significance (VUS)** to ensure only clear benign/pathogenic labels.
-- Converted raw genomic mutation tables into structured `.csv` format for downstream processing.
+### 📥 Data Preprocessing
 
-### 🧹 Preprocessing
-- Applied **One-Hot Encoding** to categorical features.
-- Used **Min-Max Normalization** to scale numerical features between 0 and 1.
-- Implemented **Label Encoding**:
-  - `0` → Benign  
-  - `1` → Pathogenic
+* Removed *Variants of Uncertain Significance (VUS)*
+* Label Mapping:
+  * `0` → Benign/Likely Benign
+  * `1` → Pathogenic/Likely Pathogenic
+* One-hot and label encoding for categorical variables
+* Normalized continuous variables using **MinMaxScaler**
 
 ### 🧬 Feature Extraction
-Extracted biologically relevant features using a domain-driven approach:
-- **Mutation Type**: e.g., missense, nonsense, silent
-- **Transition/Transversion Status**: nucleotide substitution class
-- **Flanking Nucleotide Sequences**: bases adjacent to mutation
-- **Trinucleotide Context**: three-base window centered on mutation
-- **Mutation Position**: genomic location (GRCh38 / GRCh37 coordinates)
 
-### 🛠️ Feature Engineering
+Biologically driven features were extracted and engineered to enhance signal:
 
-| Feature Category     | Features Included                                   |
-|----------------------|-----------------------------------------------------|
-| **Molecular**         | Mutation type, Consequence                         |
-| **Genomic Context**   | Flanking sequences, Trinucleotide context          |
-| **Statistical**       | Transition/Transversion classification             |
-| **Position-based**    | Genomic coordinates (GRCh37 / GRCh38 references)   |
-
-> These features were engineered to capture both the molecular impact and the contextual positioning of each variant, ensuring a comprehensive understanding of MECP2 mutation behavior.
-
+| Category           | Features Extracted                                       |
+| ------------------ | -------------------------------------------------------- |
+| **Molecular**      | Mutation consequence, sequence context                   |
+| **Genomic**        | Position (GRCh38), exon region, splice site proximity    |
+| **Sequence-based** | GC content, flanking bases, mutation type, trinucleotide |
+| **Annotation**     | GTF-mapped region labels (e.g., exon, intron)            |
+| **Derived**        | Position binning, one-hot bases before/after mutation    |
 
 ---
 
-## 🤖 Machine Learning Models Performance
+## 🤖 Machine Learning Model Results
 
-| Model             | Accuracy | Precision | Recall | F1 Score |
-|------------------|----------|-----------|--------|----------|
-| Logistic Regression | 0.88     | 0.89      | 0.88   | 0.88     |
-| KNN               | 0.94     | 0.94      | 0.94   | 0.94     |
-| SVM               | 0.92     | 0.92      | 0.92   | 0.92     |
-| Decision Tree     | 0.95     | 0.95      | 0.95   | 0.95     |
-| Random Forest     | 0.95     | 0.95      | 0.95   | 0.95     |
-| XGBoost           | 0.96     | 0.96      | 0.96   | 0.96     |
-| AdaBoost          | 0.94     | 0.94      | 0.94   | 0.94     |
-| CatBoost          | 0.96     | 0.96      | 0.96   | 0.96     |
-| Gradient Boosting | 0.97     | 0.97      | 0.97   | 0.97     |
-
----
-
-## 🧠 Deep Learning Models Performance
-
-| Model     | Accuracy | Precision | Recall | F1 Score |
-|-----------|----------|-----------|--------|----------|
-| ANN       | 0.9465   | 0.9262    | 0.9658 | 0.9456   |
-| LSTM      | 0.9423   | 0.9256    | 0.9573 | 0.9412   |
-| Autoencoder | 0.9383 | 0.9386    | 0.9383 | 0.9383   |
+| Model                  | Accuracy | Precision | Recall | F1 Score |
+| ---------------------- | -------- | --------- | ------ | -------- |
+| Logistic Regression    | 88%      | 89%       | 88%    | 88%      |
+| K-Nearest Neighbors    | 94%      | 94%       | 94%    | 94%      |
+| Support Vector Machine | 92%      | 92%       | 92%    | 92%      |
+| Decision Tree          | 95%      | 95%       | 95%    | 95%      |
+| Random Forest          | 95%      | 95%       | 95%    | 95%      |
+| XGBoost                | 96%      | 96%       | 96%    | 96%      |
+| CatBoost               | 96%      | 96%       | 96%    | 96%      |
+| Gradient Boosting      | 97%      | 97%       | 97%    | 97%      |
 
 ---
 
-## 🧪 Tools & Libraries Used
+## 🧠 Deep Learning Model Results
 
-- Python
-- **Machine Learning**: Scikit-learn, XGBoost, CatBoost, LightGBM
-- **Deep Learning**: PyTorch
-- **Data Processing**: Pandas, NumPy
-- **Data Visualization**: Matplotlib, Seaborn
-- **Optimization**: Optuna (Bayesian Optimization)
-- **Data Balancing**: SMOTE
+| Model       | Accuracy | Precision | Recall | F1 Score |
+| ----------- | -------- | --------- | ------ | -------- |
+| ANN         | 94.65%   | 92.62%    | 96.58% | 94.56%   |
+| LSTM        | 94.23%   | 92.56%    | 95.73% | 94.12%   |
+| Autoencoder | 93.83%   | 93.86%    | 93.83% | 93.83%   |
 
 ---
 
-## 🧠 Key Learnings
+## 📊 Tools & Libraries
 
-- Effective classification of genomic data using ensemble ML and DL models.
-- Oversampling plays a crucial role in imbalanced bioinformatics datasets.
-- Bayesian hyperparameter tuning provides more optimal configurations than traditional grid/random search.
+* **ML**: Scikit-learn, XGBoost, LightGBM, CatBoost
+* **DL**: PyTorch
+* **Optimization**: Optuna (Bayesian Optimization)
+* **Data Processing**: Pandas, NumPy
+* **Balancing**: SMOTE
+* **Visualization**: Matplotlib, Seaborn
+* **Genomics**: Biopython, GTF parsing via Pandas
 
 ---
 
-## 🧬 Domain Impact
+## 🧠 Key Contributions
 
-By automating the classification of MECP2 mutations:
-- We aid clinical researchers in narrowing down pathogenic variants.
-- Provide a scalable bioinformatics framework for gene-level mutation analysis.
-- Set the stage for future diagnostics in personalized medicine.
+* Domain-informed feature engineering (splice site distance, region labels, GC content)
+* SHAP analysis for model interpretability
+* Performance evaluation across a wide range of ML and DL models
+* Publicly reproducible code pipeline with modular scripts and notebooks
+
+---
+
+## 🧬 Clinical Relevance
+
+* Assists geneticists and clinicians in early detection of disease-linked MECP2 variants
+* Supports prioritization of pathogenic mutations in clinical exome pipelines
+* A step toward scalable variant classification in **precision medicine**
 
 ---
 
 ## 📁 Repository Structure
-```
-📁 Bioinformatics-MECP2-Classifier/
-│
-├── 📁 data/
-│
-├── 📁 Data_Prep_&_Preprocessing/
-│   ├── 📄 Data_Preperation.ipynb
-│   └── 📄 Preprocessing.ipynb
-│
-├── 📁 Feature_Extraction/
-│   └── 📄 Feature_Extraction.ipynb
-│
-├── 📁 models/
-│   ├── 📁 dl_models/
-│   │   ├── 📄 Encoder.ipynb
-│   │   ├── 📄 LSTM.ipynb
-│   │   └── 📄 Neural_Network.ipynb
-│   │
-│   └── 📁 ml_models/
-│       ├── 📁 catboost_info/
-│       ├── 📁 pkl_files/
-│       ├── 📁 results/
-│       └── 📄 ml_models.ipynb
-│
-├── 📄 requirements.txt
-├── 📄 README.md
-├── 📄 LICENSE
-└── 📁 venv/
-```
----
 
-## 📜 License
-
-This project is licensed under the **GNU General Public License v3.0**.  
-🔗 [View License](LICENSE)
+```
+📁 MECP2-Analysis/
+│
+├── data/                        # Sample or cleaned variant datasets
+├── Data_Prep_&_Preprocessing/
+│   ├── Data_Preperation.ipynb
+│   └── Preprocessing.ipynb
+├── Feature_Extraction/
+│   └── Feature_Extraction.ipynb
+├── models/
+│   ├── dl_models/
+│   │   ├── Encoder.ipynb
+│   │   ├── LSTM.ipynb
+│   │   └── Neural_Network.ipynb
+│   └── ml_models/
+│       ├── catboost_info/
+│       ├── pkl_files/
+│       ├── results/
+│       └── ml_models.ipynb
+├── requirements.txt
+├── README.md
+├── LICENSE
+└── venv/
+```
 
 ---
 
@@ -165,13 +140,13 @@ This project is licensed under the **GNU General Public License v3.0**.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sravz2433/BI-Project.git
-cd mecp2-mutation-classification
+git clone https://github.com/Sravz2433/MECP2-Analysis.git
+cd MECP2-Analysis
 
-# Set up virtual environment
+# Set up a virtual environment
 python -m venv venv
-source venv/bin/activate  # For Unix
-venv\Scripts\activate     # For Windows
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
 
 # Install dependencies
 pip install -r requirements.txt
@@ -179,9 +154,17 @@ pip install -r requirements.txt
 
 ---
 
+## 📜 License
+
+Licensed under the **GNU General Public License v3.0**.
+🔗 [View License](LICENSE)
+
+---
+
 ## 📫 Contact
 
-For queries, feel free to reach out at:
-- 📧 sravyasri2433@gmail.com
-- 🔗 LinkedIn: [Sravya Sri Mallampalli](https://www.linkedin.com/in/sravya-sri-mallampalli/)
+Feel free to reach out with questions or collaborations:
+
+* 📧 [sravyasri2433@gmail.com](mailto:sravyasri2433@gmail.com)
+* 💼 [LinkedIn – Sravya Sri Mallampalli](https://www.linkedin.com/in/sravya-sri-mallampalli/)
 
