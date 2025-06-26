@@ -10,3 +10,4 @@ ipywidgets
 imbalanced-learn
 xgboost
 catboost
+lime
