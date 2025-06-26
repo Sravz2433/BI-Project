@@ -1,0 +1,324 @@
+Model Results
+==================================================
+Training final Logistic Regression model
+==================================================
+Logistic Regression Accuracy: 0.8848
+Training Time: 0.0273 seconds
+Inference Time: 0.0044 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.93      0.89       126
+           1       0.92      0.84      0.88       117
+
+    accuracy                           0.88       243
+   macro avg       0.89      0.88      0.88       243
+weighted avg       0.89      0.88      0.88       243
+
+
+Confusion Matrix:
+[[117   9]
+ [ 19  98]]
+
+==================================================
+Training final KNN model
+==================================================
+KNN Accuracy: 0.9383
+Training Time: 0.0297 seconds
+Inference Time: 0.0387 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.95      0.93      0.94       126
+           1       0.93      0.95      0.94       117
+
+    accuracy                           0.94       243
+   macro avg       0.94      0.94      0.94       243
+weighted avg       0.94      0.94      0.94       243
+
+
+Confusion Matrix:
+[[117   9]
+ [  6 111]]
+
+==================================================
+Training final SVM model
+==================================================
+SVM Accuracy: 0.9177
+Training Time: 0.0793 seconds
+Inference Time: 0.0303 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92       126
+           1       0.91      0.92      0.92       117
+
+    accuracy                           0.92       243
+   macro avg       0.92      0.92      0.92       243
+weighted avg       0.92      0.92      0.92       243
+
+
+Confusion Matrix:
+[[115  11]
+ [  9 108]]
+
+==================================================
+Training final Decision Tree model
+==================================================
+Decision Tree Accuracy: 0.9465
+Training Time: 0.0256 seconds
+Inference Time: 0.0030 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.92      0.98      0.95       126
+           1       0.97      0.91      0.94       117
+
+    accuracy                           0.95       243
+   macro avg       0.95      0.95      0.95       243
+weighted avg       0.95      0.95      0.95       243
+
+
+Confusion Matrix:
+[[123   3]
+ [ 10 107]]
+
+==================================================
+Training final Random Forest model
+==================================================
+Random Forest Accuracy: 0.9547
+Training Time: 0.3744 seconds
+Inference Time: 0.0157 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.98      0.94      0.96       126
+           1       0.93      0.97      0.95       117
+
+    accuracy                           0.95       243
+   macro avg       0.95      0.96      0.95       243
+weighted avg       0.96      0.95      0.95       243
+
+
+Confusion Matrix:
+[[118   8]
+ [  3 114]]
+
+==================================================
+Training final XGBoost model
+==================================================
+XGBoost Accuracy: 0.9506
+Training Time: 0.1370 seconds
+Inference Time: 0.0060 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.94      0.95       126
+           1       0.94      0.96      0.95       117
+
+    accuracy                           0.95       243
+   macro avg       0.95      0.95      0.95       243
+weighted avg       0.95      0.95      0.95       243
+
+
+Confusion Matrix:
+[[119   7]
+ [  5 112]]
+
+==================================================
+Training final AdaBoost model
+==================================================
+AdaBoost Accuracy: 0.9588
+Training Time: 1.0281 seconds
+Inference Time: 0.0616 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.98      0.94      0.96       126
+           1       0.94      0.97      0.96       117
+
+    accuracy                           0.96       243
+   macro avg       0.96      0.96      0.96       243
+weighted avg       0.96      0.96      0.96       243
+
+
+Confusion Matrix:
+[[119   7]
+ [  3 114]]
+
+==================================================
+Training final CatBoost model
+==================================================
+0:	learn: 0.5197041	total: 144ms	remaining: 17.8s
+1:	learn: 0.4231694	total: 150ms	remaining: 9.14s
+2:	learn: 0.3326224	total: 156ms	remaining: 6.3s
+3:	learn: 0.2842825	total: 163ms	remaining: 4.89s
+4:	learn: 0.2542311	total: 169ms	remaining: 4.01s
+5:	learn: 0.2378152	total: 175ms	remaining: 3.44s
+6:	learn: 0.2228442	total: 180ms	remaining: 3.01s
+7:	learn: 0.2055731	total: 185ms	remaining: 2.68s
+8:	learn: 0.2007959	total: 190ms	remaining: 2.42s
+9:	learn: 0.1950054	total: 195ms	remaining: 2.22s
+10:	learn: 0.1915307	total: 199ms	remaining: 2.05s
+11:	learn: 0.1881771	total: 204ms	remaining: 1.9s
+12:	learn: 0.1853143	total: 208ms	remaining: 1.77s
+13:	learn: 0.1818565	total: 212ms	remaining: 1.67s
+14:	learn: 0.1763519	total: 217ms	remaining: 1.58s
+15:	learn: 0.1715484	total: 223ms	remaining: 1.5s
+16:	learn: 0.1694164	total: 227ms	remaining: 1.43s
+17:	learn: 0.1561774	total: 231ms	remaining: 1.36s
+18:	learn: 0.1541469	total: 235ms	remaining: 1.3s
+19:	learn: 0.1491511	total: 240ms	remaining: 1.25s
+20:	learn: 0.1481963	total: 245ms	remaining: 1.2s
+21:	learn: 0.1470657	total: 249ms	remaining: 1.15s
+22:	learn: 0.1426485	total: 253ms	remaining: 1.11s
+23:	learn: 0.1420429	total: 258ms	remaining: 1.07s
+24:	learn: 0.1404413	total: 262ms	remaining: 1.04s
+25:	learn: 0.1340513	total: 267ms	remaining: 1s
+26:	learn: 0.1326664	total: 271ms	remaining: 973ms
+27:	learn: 0.1308761	total: 275ms	remaining: 944ms
+28:	learn: 0.1303948	total: 280ms	remaining: 916ms
+29:	learn: 0.1270784	total: 284ms	remaining: 889ms
+30:	learn: 0.1245162	total: 288ms	remaining: 865ms
+31:	learn: 0.1215070	total: 292ms	remaining: 840ms
+32:	learn: 0.1198309	total: 296ms	remaining: 817ms
+33:	learn: 0.1176327	total: 300ms	remaining: 795ms
+34:	learn: 0.1170995	total: 305ms	remaining: 775ms
+35:	learn: 0.1162317	total: 309ms	remaining: 755ms
+36:	learn: 0.1152427	total: 313ms	remaining: 736ms
+37:	learn: 0.1111990	total: 318ms	remaining: 719ms
+38:	learn: 0.1106976	total: 323ms	remaining: 703ms
+39:	learn: 0.1103089	total: 328ms	remaining: 688ms
+40:	learn: 0.1058496	total: 333ms	remaining: 674ms
+41:	learn: 0.1038053	total: 337ms	remaining: 659ms
+42:	learn: 0.1018486	total: 342ms	remaining: 644ms
+43:	learn: 0.0996343	total: 346ms	remaining: 629ms
+44:	learn: 0.0990005	total: 350ms	remaining: 615ms
+45:	learn: 0.0979677	total: 355ms	remaining: 601ms
+46:	learn: 0.0964117	total: 359ms	remaining: 588ms
+47:	learn: 0.0948304	total: 365ms	remaining: 578ms
+48:	learn: 0.0944391	total: 370ms	remaining: 567ms
+49:	learn: 0.0931572	total: 375ms	remaining: 554ms
+50:	learn: 0.0927171	total: 380ms	remaining: 544ms
+51:	learn: 0.0922981	total: 385ms	remaining: 533ms
+52:	learn: 0.0895582	total: 389ms	remaining: 521ms
+53:	learn: 0.0891680	total: 393ms	remaining: 510ms
+54:	learn: 0.0888441	total: 398ms	remaining: 499ms
+55:	learn: 0.0871026	total: 402ms	remaining: 488ms
+56:	learn: 0.0867789	total: 406ms	remaining: 478ms
+57:	learn: 0.0856487	total: 411ms	remaining: 467ms
+58:	learn: 0.0844129	total: 415ms	remaining: 458ms
+59:	learn: 0.0841984	total: 420ms	remaining: 448ms
+60:	learn: 0.0831657	total: 424ms	remaining: 438ms
+61:	learn: 0.0828680	total: 429ms	remaining: 429ms
+62:	learn: 0.0802531	total: 433ms	remaining: 419ms
+63:	learn: 0.0800803	total: 438ms	remaining: 410ms
+64:	learn: 0.0798646	total: 442ms	remaining: 401ms
+65:	learn: 0.0796715	total: 446ms	remaining: 392ms
+66:	learn: 0.0789043	total: 451ms	remaining: 384ms
+67:	learn: 0.0778503	total: 455ms	remaining: 375ms
+68:	learn: 0.0777295	total: 460ms	remaining: 367ms
+69:	learn: 0.0771506	total: 465ms	remaining: 359ms
+70:	learn: 0.0763197	total: 470ms	remaining: 351ms
+71:	learn: 0.0761484	total: 475ms	remaining: 343ms
+72:	learn: 0.0760867	total: 480ms	remaining: 335ms
+73:	learn: 0.0748970	total: 484ms	remaining: 327ms
+74:	learn: 0.0741645	total: 489ms	remaining: 319ms
+75:	learn: 0.0736120	total: 497ms	remaining: 314ms
+76:	learn: 0.0731415	total: 502ms	remaining: 306ms
+77:	learn: 0.0722840	total: 507ms	remaining: 299ms
+78:	learn: 0.0704621	total: 512ms	remaining: 291ms
+79:	learn: 0.0702129	total: 518ms	remaining: 285ms
+80:	learn: 0.0693996	total: 524ms	remaining: 278ms
+81:	learn: 0.0691473	total: 528ms	remaining: 271ms
+82:	learn: 0.0688397	total: 533ms	remaining: 263ms
+83:	learn: 0.0686432	total: 540ms	remaining: 257ms
+84:	learn: 0.0684390	total: 546ms	remaining: 250ms
+85:	learn: 0.0681599	total: 551ms	remaining: 243ms
+86:	learn: 0.0668654	total: 557ms	remaining: 237ms
+87:	learn: 0.0664584	total: 565ms	remaining: 231ms
+88:	learn: 0.0643228	total: 571ms	remaining: 225ms
+89:	learn: 0.0640392	total: 577ms	remaining: 218ms
+90:	learn: 0.0634679	total: 583ms	remaining: 211ms
+91:	learn: 0.0631027	total: 589ms	remaining: 205ms
+92:	learn: 0.0616086	total: 594ms	remaining: 198ms
+93:	learn: 0.0614682	total: 599ms	remaining: 191ms
+94:	learn: 0.0610237	total: 606ms	remaining: 185ms
+95:	learn: 0.0609242	total: 612ms	remaining: 178ms
+96:	learn: 0.0601359	total: 617ms	remaining: 172ms
+97:	learn: 0.0590809	total: 623ms	remaining: 165ms
+98:	learn: 0.0586002	total: 629ms	remaining: 159ms
+99:	learn: 0.0582343	total: 634ms	remaining: 152ms
+100:	learn: 0.0576613	total: 639ms	remaining: 145ms
+101:	learn: 0.0573596	total: 644ms	remaining: 139ms
+102:	learn: 0.0572424	total: 649ms	remaining: 132ms
+103:	learn: 0.0571633	total: 654ms	remaining: 126ms
+104:	learn: 0.0570918	total: 658ms	remaining: 119ms
+105:	learn: 0.0570373	total: 663ms	remaining: 113ms
+106:	learn: 0.0555815	total: 668ms	remaining: 106ms
+107:	learn: 0.0547439	total: 673ms	remaining: 99.7ms
+108:	learn: 0.0542736	total: 677ms	remaining: 93.1ms
+109:	learn: 0.0541573	total: 681ms	remaining: 86.7ms
+110:	learn: 0.0536512	total: 686ms	remaining: 80.3ms
+111:	learn: 0.0535204	total: 690ms	remaining: 73.9ms
+112:	learn: 0.0531580	total: 694ms	remaining: 67.5ms
+113:	learn: 0.0525205	total: 698ms	remaining: 61.3ms
+114:	learn: 0.0524153	total: 703ms	remaining: 55ms
+115:	learn: 0.0521237	total: 708ms	remaining: 48.8ms
+116:	learn: 0.0519458	total: 713ms	remaining: 42.7ms
+117:	learn: 0.0516254	total: 718ms	remaining: 36.5ms
+118:	learn: 0.0509439	total: 723ms	remaining: 30.4ms
+119:	learn: 0.0495831	total: 728ms	remaining: 24.3ms
+120:	learn: 0.0488508	total: 732ms	remaining: 18.2ms
+121:	learn: 0.0484912	total: 737ms	remaining: 12.1ms
+122:	learn: 0.0480302	total: 741ms	remaining: 6.02ms
+123:	learn: 0.0477178	total: 746ms	remaining: 0us
+CatBoost Accuracy: 0.9630
+Training Time: 0.8645 seconds
+Inference Time: 0.0063 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.98      0.95      0.96       126
+           1       0.95      0.97      0.96       117
+
+    accuracy                           0.96       243
+   macro avg       0.96      0.96      0.96       243
+weighted avg       0.96      0.96      0.96       243
+
+
+Confusion Matrix:
+[[120   6]
+ [  3 114]]
+
+==================================================
+Training final Gradient Boosting model
+==================================================
+Gradient Boosting Accuracy: 0.9671
+Training Time: 1.4702 seconds
+Inference Time: 0.0066 seconds
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.98      0.96      0.97       126
+           1       0.96      0.97      0.97       117
+
+    accuracy                           0.97       243
+   macro avg       0.97      0.97      0.97       243
+weighted avg       0.97      0.97      0.97       243
+
+
+Confusion Matrix:
+[[121   5]
+ [  3 114]]
+
+ 
